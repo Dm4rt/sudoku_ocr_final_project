@@ -1,5 +1,6 @@
 # CS493-Project Final
 STUDENT NAME: DANIEL MARTINEZ
+Solo Project
 
 ## Sudoku OCR Detector
 
@@ -38,13 +39,16 @@ SudokuProjectFinal/
 
 -----------------------------------------
 In order to run the sofware
+
 1. Build the C++ Solver - Compile the C++ code using OpenCV. Just type "make all" in your terminal while in the project directory.
 
 2. Install Flask - Make sure Flask is installed: pip install flask should do thet trick
 
 3. Run the App
-From the main directory just type "pythong3 app,py" to run the app
+From the main directory just type "pythong3 app.py" to run the app
 Then you should be able to visit http://127.0.0.1:8080 or in your browser.
+
+4. There are sample images in the /sampleImages folder of the repo. These have been tested by me and give the best results
 
 -----------------------------------------
 
@@ -58,6 +62,7 @@ If there are issues
 - Make sure `digit_classifier.onnx` is in the same directory as `sudoku_ocr`
 - The final result is saved as `combined_result.jpg`
 - You should be able to  your own ONNX model if you'd like to improve digit recognition accuracy
+- There are a bunch of debug files in the debug folder. Every time an image is uploaded and put to solve, a debug process will happen and store in the appropriate folder.
 --------------------------------------------
 In the future I want to work on 
 

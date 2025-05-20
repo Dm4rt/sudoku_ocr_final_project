@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku Solver</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    .upload-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    input[type="file"] {
+      margin: 10px;
+    }
+    img {
+      margin-top: 30px;
+      max-width: 90%;
+      height: auto;
+      border: 3px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="upload-box">
+    <h1>Sudoku Solver</h1>
+    <p>Upload an image of a Sudoku puzzle and see the solution!</p>
+    <

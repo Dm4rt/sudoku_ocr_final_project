@@ -1,6 +1,7 @@
 # CS493-Project Final
 STUDENT NAME: DANIEL MARTINEZ
-Solo Project
+Solo Project Code
+***Presentation slides are also in the repo!
 
 ## Sudoku OCR Detector
 

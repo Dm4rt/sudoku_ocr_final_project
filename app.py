@@ -1,36 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Sudoku Solver</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-      padding: 50px;
-    }
-    .upload-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: inline-block;
-    }
-    input[type="file"] {
-      margin: 10px;
-    }
-    img {
-      margin-top: 30px;
-      max-width: 90%;
-      height: auto;
-      border: 3px solid #ccc;
-    }
-  </style>
-</head>
-<body>
+from flask import Flask, request, send_file, render_template
+import os
+import subprocess
+import uuid
 
-  <div class="upload-box">
-    <h1>Sudoku Solver</h1>
-    <p>Upload an image of a Sudoku puzzle and see the solution!</p>
-    <
+app = Flask(__name__)
+UPLOAD_FOLDER = "uploads"
+RESULT_IMAGE = "combined_result.jpg"
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        file = request.files["image"]
+        if file:
+            filename = f"{uuid.uuid4()}.jpg"
+            filepath = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(filepath)
+
+            # Call your C++ program
+            subprocess.run([
+                "./sudoku_ocr", filepath, "digit_classifier.onnx", "0.7"
+            ])
+
+            return send_file(RESULT_IMAGE, mimetype='image/jpeg')
+
+    return render_template("index.html")
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=8080)
